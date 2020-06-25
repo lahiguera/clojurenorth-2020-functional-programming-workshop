@@ -8,18 +8,18 @@
 
 (defn- rolls->frames
   [rolls]
-  (loop [frames             []
+  (loop [frames  []
          [first-roll
           second-roll
           & remaining-rolls
           :as all-rolls]    rolls]
     (cond
-      (roll/strike? first-roll)           (recur (conj frames (->Frame "X" first-roll 0 10))
-                                                 (rest all-rolls))
+      (roll/strike? first-roll)            (recur (conj frames (->Frame "X" first-roll 0 10))
+                                                  (rest all-rolls))
       (roll/spare? first-roll second-roll) (recur (conj frames (->Frame "/" first-roll second-roll 10))
-                                                 remaining-rolls)
-      :else                               (recur (conj frames (->Frame nil first-roll second-roll (+ first-roll second-roll)))
-                                                 remaining-rolls))))
+                                                  remaining-rolls)
+      :else                                (recur (conj frames (->Frame nil first-roll second-roll (+ first-roll second-roll)))
+                                                  remaining-rolls))))
 
 (defn- reduce-frames-fn
   [first-frame second-frame]
