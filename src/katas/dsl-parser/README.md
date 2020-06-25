@@ -2,9 +2,13 @@
 
 ## Intro
 Suppose you have a bytearray holding a:
+```
+
  -----------------------------------------------------------------------------------
  |  32-bit int | 16 empty bits | string 10 bytes | double precision floating value |
  -----------------------------------------------------------------------------------
+```
+
 
 All instructions are vectors where the first element is 
 the parsing/writing action to execute. If there are any arguments
