@@ -27,18 +27,27 @@
           (:type second-frame)
           (:type first-frame))
     "X"
-    (->Frame "acc" (:first-roll second-frame) (:second-roll second-frame) (+ (:score first-frame) 10 (:first-roll second-frame) (:second-roll second-frame)))
+    (->Frame "acc"
+             (:first-roll second-frame)
+             (:second-roll second-frame)
+             (+ (:score first-frame) 10 (:first-roll second-frame) (:second-roll second-frame)))
 
     "/"
-    (->Frame "acc" (:first-roll second-frame) (:second-roll second-frame) (+ (:score first-frame)
-                                                                             10
-                                                                             (* 2 (:first-roll second-frame))
-                                                                             (:second-roll second-frame)))
+    (->Frame "acc"
+             (:first-roll second-frame) (:second-roll second-frame)
+             (+ (:score first-frame)
+                10
+                (* 2 (:first-roll second-frame))
+                (:second-roll second-frame)))
 
 
     :else
-    (->Frame "acc" (:first-roll second-frame) (:second-roll second-frame) (+ (:score first-frame) (:first-roll second-frame) (:second-roll second-frame)))
-    (+ (:first-roll first-frame) (:second-roll first-frame))))
+    (->Frame "acc"
+             (:first-roll second-frame)
+             (:second-roll second-frame)
+             (+ (:score first-frame)
+                (:first-roll second-frame)
+                (:second-roll second-frame)))))
 
 (defn total-score
   [rolls]
